@@ -1,24 +1,24 @@
 `timescale 1ns / 1ps
 
 // main mix columns module
-module mixcolumns(clk, din, dout);
-	input logic clk;
-	input logic [127:0] din;
-	output logic [127:0] dout;
+module mixcolumns(
+	input logic clk,
+	input logic [127:0] din,
+	output logic [127:0] dout);
 
-	logic [31:0] n1,n2,n3,n4;
+	logic [31:0] d1,d2,d3,d4;
 	logic [31:0] n1out, n2out, n3out, n4out;
 
-	assign n1 = din[127:96];
-	assign n2 = din[95:64];
-	assign n3 = din[63:32];
-	assign n4 = din[31:0];
+	assign d1 = din[127:96];
+	assign d2 = din[95:64];
+	assign d3 = din[63:32];
+	assign d4 = din[31:0];
 
 	// 4 * 32 bit instantiations = 128 bits
-	mul_32 m1 (clk, n1, n1out);
-	mul_32 m2 (clk, n2, n2out);
-	mul_32 m3 (clk, n3, n3out);
-	mul_32 m4 (clk, n4, n4out);
+	mul_32 m1 (clk, d1, n1out);
+	mul_32 m2 (clk, d2, n2out);
+	mul_32 m3 (clk, d3, n3out);
+	mul_32 m4 (clk, d4, n4out);
 
 	assign dout = {n1out, n2out, n3out, n4out};
 endmodule
@@ -53,7 +53,7 @@ module mul_32(clk, ddin, ddout);
 	input [31:0] ddin;
 	output [31:0] ddout;
 
-	// internal signals
+	// internal, intermediate signals
 	logic [7:0] t1,t2,t3,t4;
 	logic [7:0] ma0,ma1,ma2,ma3;
 	logic [7:0] m2out1,m2out2,m2out3,m2out4;

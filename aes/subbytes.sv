@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 // subbytes module
-module subbytes(clk,data,dout);
-    input logic clk;
-    input logic [127:0] data;
-    output logic [127:0] dout;
+module subbytes(
+    input logic clk,
+    input logic [127:0] data,
+    output logic [127:0] dout);
 
     logic [127:0] outsbox;
 
