@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-// main module
+// main mix columns module
 module mixcolumns(clk, din, dout);
 	input logic clk;
 	input logic [127:0] din;
