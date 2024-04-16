@@ -1,6 +1,6 @@
 parameter width = 16;
 parameter address_w = 12;
-module SRAM_12x16 (
+module SRAM (
     input logic [address_w-1:0] address,      // Address bus (12 bits)
     input logic [width-1:0] data_in,      // Data input bus (16 bits)
     input logic write_enable,        // Write enable signal
@@ -9,7 +9,7 @@ module SRAM_12x16 (
 );
 
     // Internal memory array declaration
-    logic [width-1:0] memory [0:2^address_w-1];    // 12x16 SRAM array (4096 words of 16 bits each)
+    logic [width-1:0] memory [0:2**address_w-1];    // 12x16 SRAM array (4096 words of 16 bits each)
 
     // Read operation
     always_comb begin
