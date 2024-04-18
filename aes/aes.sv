@@ -1,27 +1,30 @@
 `timescale 1ns / 1ps
-module aes(clk, data_in, key, data_out);
-input logic clk;
-input logic [127:0] data_in;
-input logic [127:0] key;
-output logic [127:0] data_out;
 
-logic [127:0] key_s,key_s0,key_s1,key_s2,key_s3,key_s4,key_s5,key_s6,key_s7,key_s8,key_s9;
-logic [127:0] r_data_out,r0_data_out,r1_data_out,r2_data_out,r3_data_out,r4_data_out,r5_data_out,r6_data_out,r7_data_out,r8_data_out,r9_data_out;
+module aes(clk, din, key, dout);
+    input logic clk;
+    input logic [127:0] din;
+    input logic [127:0] key;
+    output logic [127:0] dout;
 
-assign r_data_out=data_in^key_s;
+    // internal signals for key expansion and AES rounds
+    logic [127:0] key_s,key_s0,key_s1,key_s2,key_s3,key_s4,key_s5,key_s6,key_s7,key_s8,key_s9;
+    logic [127:0] r_dout,r0_dout,r1_dout,r2_dout,r3_dout,r4_dout,r5_dout,r6_dout,r7_dout,r8_dout,r9_dout;
 
+    assign r_dout = din ^ key_s;
 
-aes_key_expand_128 a0( clk,key, key_s,key_s0,key_s1,key_s2,key_s3,key_s4,key_s5,key_s6,key_s7,key_s8,key_s9);
-round r0(clk,r_data_out,key_s0,r0_data_out);
-round r1(clk,r0_data_out,key_s1,r1_data_out);
-round r2(clk,r1_data_out,key_s2,r2_data_out);
-round r3(clk,r2_data_out,key_s3,r3_data_out);
-round r4(clk,r3_data_out,key_s4,r4_data_out);
-round r5(clk,r4_data_out,key_s5,r5_data_out);
-round r6(clk,r5_data_out,key_s6,r6_data_out);
-round r7(clk,r6_data_out,key_s7,r7_data_out);
-round r8(clk,r7_data_out,key_s8,r8_data_out);
-last_round r9(clk,r8_data_out,key_s9,r9_data_out);
+    // key expansion then 10 rounds of AES
+    // give same clk to all modules
+    keyexpansion a0(clk,key, key_s,key_s0,key_s1,key_s2,key_s3,key_s4,key_s5,key_s6,key_s7,key_s8,key_s9);
+    addroundkey r0(clk,r_dout,key_s0,r0_dout);
+    addroundkey r1(clk,r0_dout,key_s1,r1_dout);
+    addroundkey r2(clk,r1_dout,key_s2,r2_dout);
+    addroundkey r3(clk,r2_dout,key_s3,r3_dout);
+    addroundkey r4(clk,r3_dout,key_s4,r4_dout);
+    addroundkey r5(clk,r4_dout,key_s5,r5_dout);
+    addroundkey r6(clk,r5_dout,key_s6,r6_dout);
+    addroundkey r7(clk,r6_dout,key_s7,r7_dout);
+    addroundkey r8(clk,r7_dout,key_s8,r8_dout);
+    finalround r9(clk,r8_dout,key_s9,r9_dout);
 
-assign data_out=r9_data_out;
+    assign dout = r9_dout;
 endmodule
