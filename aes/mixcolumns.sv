@@ -65,7 +65,7 @@ module mul_32(clk, ddin, ddout);
 	assign t4 = ddin[7:0];
 
 	// 4 * 8 bit instantiations = 32 bits
-	begin
+	//begin
 		mul_2_xtime m1 (clk, t1, m2out1);
 		mul_2_xtime m2 (clk, t2, m2out2);
 		mul_2_xtime m3 (clk, t3, m2out3);
@@ -75,7 +75,7 @@ module mul_32(clk, ddin, ddout);
 		mul_3_ff m6 (clk, t2, m3out2);
 		mul_3_ff m7 (clk, t3, m3out3);
 		mul_3_ff m8 (clk, t4, m3out4);
-	end
+	//end
 
 	// XOR equations from FIPS 197
 	assign ma0 = m2out1 ^ m3out2 ^ t3 ^ t4;
