@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 // sbox module
-module sbox(input logic din,
-            output logic dout);
+module sbox(input logic [7:0] din,
+            output logic [7:0] dout);
     // FIPS 197 specifies the exact substitution values for the S-box
     // The S-box is a 16x16 table of substitution values
 	always@(din) begin
