@@ -1,5 +1,5 @@
-module shiftrows (input logic [127:0] data_in,
-                  input logic clk,
+module shiftrows (input logic clk,
+                  input logic [127:0] data_in,
                   output logic [127:0] data_out);
 
     always_ff @(posedge clk) begin
