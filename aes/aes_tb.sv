@@ -30,7 +30,7 @@ module aes_tb;
         // encrypted output: 363eff6cde1adea8b244ad2e3c4ebdc8
 
         // wait 12 cycles for good measure
-        #60;
+        #120;
 
         // second test inputs - swap din and key
         din = 128'h00112233445566778899aabbccddeeff;
@@ -38,7 +38,7 @@ module aes_tb;
         // encrypted output: c0ea267917f34bf3616e3a50d8c3c507
 
         // wait
-        #60;
+        #120;
 
         // third test inputs - new din, old key
         din = 128'h69c4e0d86a7b0430d8cdb78070b4c55a;
@@ -46,7 +46,7 @@ module aes_tb;
         // encrypted output: f47a9849bb3e509b09067ec2cac74ddb
 
         // wait and finish
-        #60;
+        #120;
         $finish;
     end
 
