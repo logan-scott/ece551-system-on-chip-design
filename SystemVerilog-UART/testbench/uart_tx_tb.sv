@@ -61,13 +61,11 @@ module uart_tx_tb();
    int                    end_flag = 0;
 
    initial begin
-      // in    = 0;
-      @(negedge clk);
-      #1;
+
       valid_tx = 0;
       rstn  = 0;
 
-      repeat(10) @(posedge clk);
+      repeat(100) @(posedge clk);
       rstn  = 1;
       data = $urandom_range(0, 2**DATA_WIDTH-1);
 
@@ -91,13 +89,13 @@ module uart_tx_tb();
             repeat(PULSE_WIDTH) @(posedge clk);
          end
 
-         // if(data == $pow(2, DATA_WIDTH)-1) begin
-         //    end_flag = 1;
-         // end
-         // else begin
-         //    data++;
-         // end
-         end_flag = 1;
+         if(data == $pow(2, DATA_WIDTH)-1) begin
+             end_flag = 1;
+          end
+          else begin
+             data++;
+          end
+         //end_flag = 1;
 
       end
 

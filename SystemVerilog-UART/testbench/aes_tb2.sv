@@ -95,10 +95,7 @@ module aes_tb2 ();
 	
 
 	 i = i + 1;
-	if (i == 16) begin
-	   data_t = 8'b01100101;
-	end
-	 else if (i >= 17) begin
+	if (i >= 16) begin
 		i = 0;
 	 end
 	if (i == 0) begin

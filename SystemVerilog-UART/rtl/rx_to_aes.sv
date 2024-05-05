@@ -32,7 +32,7 @@ module rx_to_aes (input  logic sig_rx,
 	
 
 	always_comb begin
-	    if (count >= 17)
+	    if (count >= 16)
 		full_rx = 1;
 	    else
 		full_rx = 0;
