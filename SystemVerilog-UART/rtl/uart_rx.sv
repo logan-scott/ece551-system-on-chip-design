@@ -106,7 +106,7 @@ module uart_rx
 
    logic [DATA_WIDTH-1:0]   data_tmp_r;
    logic [LB_DATA_WIDTH:0]  data_cnt;
-   logic signed [LB_PULSE_WIDTH:0] clk_cnt;
+   logic signed [LB_PULSE_WIDTH+1:0] clk_cnt;
    logic                    rx_done;
 
    always_ff @(posedge clk) begin
