@@ -36,7 +36,7 @@ localparam DATA_WIDTH = 8;
 localparam PULSE_WIDTH   = CLK_FREQ / BAUD_RATE;
  //logic data[127:0] = 128'h01234567890123456789012345678901;
  logic [7:0] data_transfer;
- logic [7:0] data [0:15] = '{8'h01, 8'h23, 8'h45, 8'h67, 8'h89, 8'h01, 8'h23, 8'h45, 8'h67, 8'h89, 8'h01, 8'h23, 8'h45, 8'h67, 8'h89, 8'h01};
+ logic [7:0] data [0:16] = '{8'h11, 8'h01, 8'h23, 8'h45, 8'h67, 8'h89, 8'h01, 8'h23, 8'h45, 8'h67, 8'h89, 8'h01, 8'h23, 8'h45, 8'h67, 8'h89, 8'h01};
  initial begin
       	key = 128'h00000000009876543210987654321098;
 
@@ -52,7 +52,7 @@ localparam PULSE_WIDTH   = CLK_FREQ / BAUD_RATE;
 
 
 
-      	for(int i = 0; i < 16; i++) begin
+      	for(int i = 16; i >= 0; i--) begin
 
          	data_transfer = data[i];
          	for(index = -1; index <= DATA_WIDTH; index++) begin
