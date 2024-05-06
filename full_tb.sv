@@ -12,6 +12,7 @@ module full_tb();
     // instantiate full
 	full dut(
 	.clk(clk),
+	.key(key),
 	.sig_rx(sig_rx),
 	.ready_rx(ready_rx),
 	.rst_rx(rst_rx),
