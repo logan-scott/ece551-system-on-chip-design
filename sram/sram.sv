@@ -1,28 +1,284 @@
-parameter width = 16;
-parameter address_w = 12;
-module SRAM (
-    input logic [address_w-1:0] address,      // Address bus (12 bits)
-    input logic [width-1:0] data_in,      // Data input bus (16 bits)
-    input logic write_enable,        // Write enable signal
-    input logic read_enable,         // Read enable signal
-    output logic [width-1:0] data_out     // Data output bus (16 bits)
-);
+`timescale 1ns/10ps
+module sram_compiled_array(addr0,addr1,addr2,addr3,din0,din1,din2,din3,din4,din5,din6,din7,din8,din9,din10,din11,din12,din13,din14,din15,din16,din17,din18,din19,din20,din21,din22,din23,din24,din25,din26,din27,din28,din29,din30,din31,din32,din33,din34,din35,din36,din37,din38,din39,din40,din41,din42,din43,din44,din45,din46,din47,din48,din49,din50,din51,din52,din53,din54,din55,din56,din57,din58,din59,din60,din61,din62,din63,din64,din65,din66,din67,din68,din69,din70,din71,din72,din73,din74,din75,din76,din77,din78,din79,din80,din81,din82,din83,din84,din85,din86,din87,din88,din89,din90,din91,din92,din93,din94,din95,din96,din97,din98,din99,din100,din101,din102,din103,din104,din105,din106,din107,din108,din109,din110,din111,din112,din113,din114,din115,din116,din117,din118,din119,din120,din121,din122,din123,din124,din125,din126,din127,dout0,dout1,dout2,dout3,dout4,dout5,dout6,dout7,dout8,dout9,dout10,dout11,dout12,dout13,dout14,dout15,dout16,dout17,dout18,dout19,dout20,dout21,dout22,dout23,dout24,dout25,dout26,dout27,dout28,dout29,dout30,dout31,dout32,dout33,dout34,dout35,dout36,dout37,dout38,dout39,dout40,dout41,dout42,dout43,dout44,dout45,dout46,dout47,dout48,dout49,dout50,dout51,dout52,dout53,dout54,dout55,dout56,dout57,dout58,dout59,dout60,dout61,dout62,dout63,dout64,dout65,dout66,dout67,dout68,dout69,dout70,dout71,dout72,dout73,dout74,dout75,dout76,dout77,dout78,dout79,dout80,dout81,dout82,dout83,dout84,dout85,dout86,dout87,dout88,dout89,dout90,dout91,dout92,dout93,dout94,dout95,dout96,dout97,dout98,dout99,dout100,dout101,dout102,dout103,dout104,dout105,dout106,dout107,dout108,dout109,dout110,dout111,dout112,dout113,dout114,dout115,dout116,dout117,dout118,dout119,dout120,dout121,dout122,dout123,dout124,dout125,dout126,dout127,clk,write_en,sense_en);
+	input addr0;
+	input addr1;
+	input addr2;
+	input addr3;
+	input logic din0;
+	input logic din1;
+	input logic din2;
+	input logic din3;
+	input logic din4;
+	input logic din5;
+	input logic din6;
+	input logic din7;
+	input logic din8;
+	input logic din9;
+	input logic din10;
+	input logic din11;
+	input logic din12;
+	input logic din13;
+	input logic din14;
+	input logic din15;
+	input logic din16;
+	input logic din17;
+	input logic din18;
+	input logic din19;
+	input logic din20;
+	input logic din21;
+	input logic din22;
+	input logic din23;
+	input logic din24;
+	input logic din25;
+	input logic din26;
+	input logic din27;
+	input logic din28;
+	input logic din29;
+	input logic din30;
+	input logic din31;
+	input logic din32;
+	input logic din33;
+	input logic din34;
+	input logic din35;
+	input logic din36;
+	input logic din37;
+	input logic din38;
+	input logic din39;
+	input logic din40;
+	input logic din41;
+	input logic din42;
+	input logic din43;
+	input logic din44;
+	input logic din45;
+	input logic din46;
+	input logic din47;
+	input logic din48;
+	input logic din49;
+	input logic din50;
+	input logic din51;
+	input logic din52;
+	input logic din53;
+	input logic din54;
+	input logic din55;
+	input logic din56;
+	input logic din57;
+	input logic din58;
+	input logic din59;
+	input logic din60;
+	input logic din61;
+	input logic din62;
+	input logic din63;
+	input logic din64;
+	input logic din65;
+	input logic din66;
+	input logic din67;
+	input logic din68;
+	input logic din69;
+	input logic din70;
+	input logic din71;
+	input logic din72;
+	input logic din73;
+	input logic din74;
+	input logic din75;
+	input logic din76;
+	input logic din77;
+	input logic din78;
+	input logic din79;
+	input logic din80;
+	input logic din81;
+	input logic din82;
+	input logic din83;
+	input logic din84;
+	input logic din85;
+	input logic din86;
+	input logic din87;
+	input logic din88;
+	input logic din89;
+	input logic din90;
+	input logic din91;
+	input logic din92;
+	input logic din93;
+	input logic din94;
+	input logic din95;
+	input logic din96;
+	input logic din97;
+	input logic din98;
+	input logic din99;
+	input logic din100;
+	input logic din101;
+	input logic din102;
+	input logic din103;
+	input logic din104;
+	input logic din105;
+	input logic din106;
+	input logic din107;
+	input logic din108;
+	input logic din109;
+	input logic din110;
+	input logic din111;
+	input logic din112;
+	input logic din113;
+	input logic din114;
+	input logic din115;
+	input logic din116;
+	input logic din117;
+	input logic din118;
+	input logic din119;
+	input logic din120;
+	input logic din121;
+	input logic din122;
+	input logic din123;
+	input logic din124;
+	input logic din125;
+	input logic din126;
+	input logic din127;
+	output logic dout0;
+	output logic dout1;
+	output logic dout2;
+	output logic dout3;
+	output logic dout4;
+	output logic dout5;
+	output logic dout6;
+	output logic dout7;
+	output logic dout8;
+	output logic dout9;
+	output logic dout10;
+	output logic dout11;
+	output logic dout12;
+	output logic dout13;
+	output logic dout14;
+	output logic dout15;
+	output logic dout16;
+	output logic dout17;
+	output logic dout18;
+	output logic dout19;
+	output logic dout20;
+	output logic dout21;
+	output logic dout22;
+	output logic dout23;
+	output logic dout24;
+	output logic dout25;
+	output logic dout26;
+	output logic dout27;
+	output logic dout28;
+	output logic dout29;
+	output logic dout30;
+	output logic dout31;
+	output logic dout32;
+	output logic dout33;
+	output logic dout34;
+	output logic dout35;
+	output logic dout36;
+	output logic dout37;
+	output logic dout38;
+	output logic dout39;
+	output logic dout40;
+	output logic dout41;
+	output logic dout42;
+	output logic dout43;
+	output logic dout44;
+	output logic dout45;
+	output logic dout46;
+	output logic dout47;
+	output logic dout48;
+	output logic dout49;
+	output logic dout50;
+	output logic dout51;
+	output logic dout52;
+	output logic dout53;
+	output logic dout54;
+	output logic dout55;
+	output logic dout56;
+	output logic dout57;
+	output logic dout58;
+	output logic dout59;
+	output logic dout60;
+	output logic dout61;
+	output logic dout62;
+	output logic dout63;
+	output logic dout64;
+	output logic dout65;
+	output logic dout66;
+	output logic dout67;
+	output logic dout68;
+	output logic dout69;
+	output logic dout70;
+	output logic dout71;
+	output logic dout72;
+	output logic dout73;
+	output logic dout74;
+	output logic dout75;
+	output logic dout76;
+	output logic dout77;
+	output logic dout78;
+	output logic dout79;
+	output logic dout80;
+	output logic dout81;
+	output logic dout82;
+	output logic dout83;
+	output logic dout84;
+	output logic dout85;
+	output logic dout86;
+	output logic dout87;
+	output logic dout88;
+	output logic dout89;
+	output logic dout90;
+	output logic dout91;
+	output logic dout92;
+	output logic dout93;
+	output logic dout94;
+	output logic dout95;
+	output logic dout96;
+	output logic dout97;
+	output logic dout98;
+	output logic dout99;
+	output logic dout100;
+	output logic dout101;
+	output logic dout102;
+	output logic dout103;
+	output logic dout104;
+	output logic dout105;
+	output logic dout106;
+	output logic dout107;
+	output logic dout108;
+	output logic dout109;
+	output logic dout110;
+	output logic dout111;
+	output logic dout112;
+	output logic dout113;
+	output logic dout114;
+	output logic dout115;
+	output logic dout116;
+	output logic dout117;
+	output logic dout118;
+	output logic dout119;
+	output logic dout120;
+	output logic dout121;
+	output logic dout122;
+	output logic dout123;
+	output logic dout124;
+	output logic dout125;
+	output logic dout126;
+	output logic dout127;
+	input clk;
+	input write_en;
+	input sense_en;
 
     // Internal memory array declaration
-    logic [width-1:0] memory [0:2**address_w-1];    // 12x16 SRAM array (4096 words of 16 bits each)
+    logic [127:0] memory [0:2];
 
     // Read operation
-    always_comb begin
-        if (read_enable)
-            data_out = memory[address];
+    always_ff @(posedge clk) begin
+        if (sense_en)
+            {dout0,dout1,dout2,dout3,dout4,dout5,dout6,dout7,dout8,dout9,dout10,dout11,dout12,dout13,dout14,dout15,dout16,dout17,dout18,dout19,dout20,dout21,dout22,dout23,dout24,dout25,dout26,dout27,dout28,dout29,dout30,dout31,dout32,dout33,dout34,dout35,dout36,dout37,dout38,dout39,dout40,dout41,dout42,dout43,dout44,dout45,dout46,dout47,dout48,dout49,dout50,dout51,dout52,dout53,dout54,dout55,dout56,dout57,dout58,dout59,dout60,dout61,dout62,dout63,dout64,dout65,dout66,dout67,dout68,dout69,dout70,dout71,dout72,dout73,dout74,dout75,dout76,dout77,dout78,dout79,dout80,dout81,dout82,dout83,dout84,dout85,dout86,dout87,dout88,dout89,dout90,dout91,dout92,dout93,dout94,dout95,dout96,dout97,dout98,dout99,dout100,dout101,dout102,dout103,dout104,dout105,dout106,dout107,dout108,dout109,dout110,dout111,dout112,dout113,dout114,dout115,dout116,dout117,dout118,dout119,dout120,dout121,dout122,dout123,dout124,dout125,dout126,dout127} = memory[{addr0,addr1,addr2}];
         else
-            data_out = 'z; // Tri-state output when read is disabled
+            {dout0,dout1,dout2,dout3,dout4,dout5,dout6,dout7,dout8,dout9,dout10,dout11,dout12,dout13,dout14,dout15,dout16,dout17,dout18,dout19,dout20,dout21,dout22,dout23,dout24,dout25,dout26,dout27,dout28,dout29,dout30,dout31,dout32,dout33,dout34,dout35,dout36,dout37,dout38,dout39,dout40,dout41,dout42,dout43,dout44,dout45,dout46,dout47,dout48,dout49,dout50,dout51,dout52,dout53,dout54,dout55,dout56,dout57,dout58,dout59,dout60,dout61,dout62,dout63,dout64,dout65,dout66,dout67,dout68,dout69,dout70,dout71,dout72,dout73,dout74,dout75,dout76,dout77,dout78,dout79,dout80,dout81,dout82,dout83,dout84,dout85,dout86,dout87,dout88,dout89,dout90,dout91,dout92,dout93,dout94,dout95,dout96,dout97,dout98,dout99,dout100,dout101,dout102,dout103,dout104,dout105,dout106,dout107,dout108,dout109,dout110,dout111,dout112,dout113,dout114,dout115,dout116,dout117,dout118,dout119,dout120,dout121,dout122,dout123,dout124,dout125,dout126,dout127} = 'z; // Tri-state output when read is disabled
     end
 
     // Write operation
-    always_ff @(posedge write_enable) begin
-        if (write_enable)
-            memory[address] <= data_in;
+    always_ff @(posedge clk) begin
+        if (write_en)
+            memory[{addr0,addr1,addr2}] <= {din0,din1,din2,din3,din4,din5,din6,din7,din8,din9,din10,din11,din12,din13,din14,din15,din16,din17,din18,din19,din20,din21,din22,din23,din24,din25,din26,din27,din28,din29,din30,din31,din32,din33,din34,din35,din36,din37,din38,din39,din40,din41,din42,din43,din44,din45,din46,din47,din48,din49,din50,din51,din52,din53,din54,din55,din56,din57,din58,din59,din60,din61,din62,din63,din64,din65,din66,din67,din68,din69,din70,din71,din72,din73,din74,din75,din76,din77,din78,din79,din80,din81,din82,din83,din84,din85,din86,din87,din88,din89,din90,din91,din92,din93,din94,din95,din96,din97,din98,din99,din100,din101,din102,din103,din104,din105,din106,din107,din108,din109,din110,din111,din112,din113,din114,din115,din116,din117,din118,din119,din120,din121,din122,din123,din124,din125,din126,din127};
     end
 
 endmodule
